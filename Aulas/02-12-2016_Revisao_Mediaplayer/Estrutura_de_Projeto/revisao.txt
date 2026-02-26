@@ -1,0 +1,41 @@
+Projeto 1:
+==========
+Para usar uma imagem temos que copiar essa imagem para a pasta drawable, lembrando que o nome dessas imagens tem que ser tudo em minúsculo, no padrão snake_case.
+Ao criar um projeto, certifique-se de que esta no pacote certo: android.seu_nome.nome_do_projeto
+Salvar na pasta documentos, na pasta com seu nome, e se não tiver, criar.
+
+Tipos de layout:
+ConstraintLayout	: os elementos tem que ficar ancorados com molas na horizontal e na vertical criando um ponto de apoio. Essas molas são as constraints. Por isso o nome do layout é ConstraintLayout.
+LinearLayout		: os elementos ficam um abaixo do outro na orientacao vertical e não precisa fixar. Para colocar um elemento ao lado de outro, basta mudar a orientação para horizontal. Para posicionar usamos margens.
+RelativeLayout		: os elementos são ligados uns aos outros, tanto acima quanto abaixo e aos lados, e o primeiro liga-se ao container pai. Para posicionar usamos margens.
+CoordinateLayout	: os elementos são posicionados através de coordenadas.
+
+Apesar de usar o padrão snake_case onde todas as palavras são escritas com letras minúsculas, ao usarmos classes, essas seguem o padrão CamelCase normalmente.
+Todos os elementos ficam dentro de componentes que são as classes. 
+Para colocar uma imagem, temos que usar uma classe View, ou ImageView.
+Todos os elementos podem ter sua altura e largura modificados e existem três tipos de ajustes que podem ser utilizados:
+
+- fixed		: colocamos medidas fixas em dp para a largura e/ou altura
+- wrap_content	: o elemento fica com altura e largura suficiente para conter o conteúdo. 
+- match_parent	: o tamanho do elemento ocupa toda largura/altura do dispositivo.
+
+Podemos usar um tipo de ajuste para altura e outro para largura por exemplo.
+
+Elementos:
+
+TextView	: contem textos utilizados em títulos e labels
+ImageView	: contem imagens
+EditText	: elemento de entrada (input) onde o usuário insere dados
+Button		: botão clicavel
+
+Todos os elementos tem que ser identificados, ou seja, coloque um id para cada um dos elementos da tela.
+Podemos colocar cores em cada elemento, ou podemos criar essas cores no arquivo color.xml e utilizar em todos. E podemos também criar estilos para os elementos como no CSS.
+
+Para colocar uma borda em um elemento, temos que desenhar essa borda e usá-la como background.
+Ao deitarmos o celular, o layout se ajusta, mas alguns elementos ficam fora do campo de visão. Para podermos rolar a tela, temos que envolver todo o layout com um ScroolView.
+
+
+ 
+
+
+
