@@ -1,5 +1,3 @@
-Projeto 1:
-==========
 Para usar uma imagem temos que copiar essa imagem para a pasta drawable, lembrando que o nome dessas imagens tem que ser tudo em minúsculo, no padrão snake_case.
 Ao criar um projeto, certifique-se de que esta no pacote certo: android.seu_nome.nome_do_projeto
 Salvar na pasta documentos, na pasta com seu nome, e se não tiver, criar.

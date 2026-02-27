@@ -1,0 +1,15 @@
+Todo aplicativo que precisar de imagens, essas tem que estar na pasta drawable.
+Sons e vídeo, tem que ficar em uma pasta raw. Por padrão essa pasta não vem no projeto, e para criar basta clicar com o botão direito sobre a pasta res ->new -> android resource directory e mudar para raw.
+Todos os nomes tanto de vídeos como de sons e imagens tem que estar escritos com letra minúscula, sem acento ou cecidilha.
+Para executar um som, precisamos da classe MediaPlayer, então declaramos la em cima na MainActivity um objeto mediaPlayer com o comando:
+private MediaPlayer mediaplayer;
+
+Para construir o objeto capaz de tocar a musiaca uso esse comando, dentro do onCreate:
+mediaPlayer = MediaPlayer.create(this, R.raw.black); 
+
+Feito isso basta criar abaixo do onCreate os métodos
+play 	- aqui colocamos o método start() que inicia a musica
+pause 	- aqui colocamos o método pause() que para a musica
+próximo	- aqui mudamos a musica do objeto,com o comando mediaPlayer = 	  MediaPlayer.create(this, R.raw.nothing); 
+parar 	- esse método destrói o objeto mediaplayer, então depois de 	  parar a musica, ainda dentro desse método temos que criar o 	  objeto novamente:
+	  mediaPlayer = MediaPlayer.create(this, R.raw.black); 
