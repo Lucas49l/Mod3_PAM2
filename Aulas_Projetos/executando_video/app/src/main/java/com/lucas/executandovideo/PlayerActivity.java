@@ -1,8 +1,9 @@
 package com.lucas.executandovideo;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,20 +11,24 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
-    ImageView play;
-
+public class PlayerActivity extends AppCompatActivity {
+    VideoView videoView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_player);
 
-        play = findViewById(R.id.img_play);
-        play.setOnClickListener(V ->{
-            Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
-            startActivity(intent);
-        });
+        videoView = findViewById(R.id.video_view);
+
+        View decorView = getWindow().getDecorView();
+        int opcoes = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(opcoes);
+
+        videoView.setMediaController(new MediaController(this));
+        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.video);
+        videoView.start();
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

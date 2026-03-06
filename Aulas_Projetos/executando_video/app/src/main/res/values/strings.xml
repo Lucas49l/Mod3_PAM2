@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Executando Video</string>
+    <string name="descricao">Rick and Morty é uma animação adulta de ficção científica que segue as aventuras interdimensionais do cientista genial e alcoólatra, Rick Sanchez e seu neto inseguro, Moty Smith. A trama combina humor ácido e dramas familiares com viagens pelo multiverso, explora temas filosóficos como niilismo, e foca na busca de Rick por vingança contra uma versão alternativa de si mesmo (Rick Prime) que destruiu a sua vida.
+</string>
+    <string name="temporada">2018 Temporada 1</string>
+    <string name="titulo">Rick And Morty</string>
 </resources>
