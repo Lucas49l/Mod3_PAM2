@@ -1,0 +1,39 @@
+Aula PAMII - 11-03
+1 - Abrir o android
+2 - close project
+3 - new Project
+4 - empty views activity
+5 - nome do projeto? Nivelamento Banco de dados
+6 - Linguagem: Java
+==================================
+Para criar um banco de dados sqlite, existem vários métodos, vamos começar por um método bem simples:
+Dentro do método onCreate() utilize a estrutura try/catch para criar o banco.
+Try tenta executar todas as linhas de comando dentro dele.
+Se falhar alguma linha de comando, ele cai para o catch e podemos imprimir no logcat para ver o erro que aconteceu.
+
+Dentro do onCreate() usar o método openOrCreateDatabase passando o nome do banco, o modo privado e null como parâmetros:
+SQLiteDatabase db = openOrCreateDatabase("banco.db", MODE_PRIVATE, null);
+Essa linha de comando cria um banco chamado banco.db. Caso o banco já exista, ele simplesmente o abre.
+Esse método openOrCreateDatabase é um método da classe SQLiteDatabase.
+
+Depois de criado o banco, é hora de criar a tabela:
+
+db.execSQL("CREATE TABLE IF NOT EXISTS pessoas (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, idade INTEGER)";
+Esse comando cria a tabela pessoas com os atributos id, nome, idade.
+
+Para inserir dados nessa tabela usamos o comando:
+db.execSQL( "INSERT INTO pessoas(nome, idade) VALUES ("João,  30)" );
+db.execSQL( "INSERT INTO pessoas(nome, idade) VALUES ("Maria, 25)" );
+
+
+Para consultar/recuperar dados de uma tabela no banco, usamos o método rawQuery() no objeto db, em conjunto com a classe Cursor. Essa classe Cursor é muito parecida com um array. Os registros ficam armazenados dentro dessa classe e podemos percorrer esse Cursor para ver os registros:
+
+**Cursor cursor = db.rawQuery( "SELECT *FROM pessoas", null ); //**Esse comando seleciona todos os registros da tabela e coloca dentro do objeto cursor.
+Ao inserir os registros dentro do cursor, o ponteiro fica apontando para o ultimo registro, entao temos que apontar para o primeiro, e depois ir passando de registro em registro:
+**cursor.moveToFirst() //**esse comando move o ponteiro para o primeiro registro
+
+while( cursor.moveToNext() ){
+logi.("Pessoa nome :", cursor getString( 1 );  // esse comando mostra o conteudo do registro na coluna 1 da tabela que é o nome
+logi.("Pessoa nome :", cursor getString( 2 );
+}
+
