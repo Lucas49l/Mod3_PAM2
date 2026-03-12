@@ -1,0 +1,34 @@
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        try {
+            // Criar o banco de dados:
+            SQLiteDatabase db = openOrCreateDatabase("Banco.db", MODE_PRIVATE, null);
+
+            // Criar as tabelas:
+            db.execSQL("CREATE TABLE IF NOT EXISTS pessoas(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "nome TEXT," +
+                    "idade INTEGER" +
+                    ")"
+            );
+
+            // Inserir dados:
+            db.execSQL("INSERT INTO pessoas (nome, idade) VALUES ('João', 30)");
+            db.execSQL("INSERT INTO pessoas (nome, idade) VALUES ('Maria', 25)");
+
+            
+        } catch (Exception e) {
+            Toast.makeText(this, "Banco indisponivel. Tente mais tarde"
+                    , Toast.LENGTH_SHORT).show();
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
