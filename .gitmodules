@@ -1,0 +1,6 @@
+[submodule "Aulas_Projetos/bancodedados"]
+	path = Aulas_Projetos/bancodedados
+	url = https://github.com/Lucas49l/PAM2_banco-de-dados.git
+[submodule "Aulas_Projetos/PAM2_banco_de_dados"]
+	path = Aulas_Projetos/PAM2_banco_de_dados
+	url = https://github.com/Lucas49l/PAM2_banco-de-dados.git
