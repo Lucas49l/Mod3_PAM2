@@ -1,0 +1,25 @@
+
+25-03 - PAMII
+=============
+
+Um projeto profissional precisa ter um banco de dados.
+Esse banco de dados pode ser online ou próprio do dispositivo.
+Usamos o banco de dados SQLite quando não tiver internet.
+Em todos os casos precisamos um mínimo de organização, para poder trabalhar
+Um dos métodos de organização é o padrão MVC. 
+Nesse método dividimos as responsabilidades e com isso facilitamos a manutenção e legibilidade do prVCojeto.
+Alem dos pacotes MVC (model, view, controller) podemos ter outros pacotes para auxiliar.
+Nosso projeto tem os seguintes pacotes:
+
+pacote		classe				conteúdo
+======		==============		========
+api			AppUtil				colocamos aqui métodos que serão uteis no projeto todo.
+controller		ClienteController		controller é o meio de campo entre a view que é a camada mais alta do projeto e a datasource que é a camada mais baixa. A camada mais alta é a tela onde o usuário preenche um formulário por exemplo e a camada mais baixa é a datasource que faz o acesso ao banco de dados.
+
+datamodel	ClienteDataModel		aqui colocamos o processo de criação das tabelas de todos os objetos, cliente, produto, usuário entre outros.
+
+datasource	AppDataBase			essa classe é que vai manipular as tabelas no banco de dados.
+
+model		Cliente/Produto		é um espelho da tabela no banco de dados, com os atributos e os getters e setters.
+
+view		MainActivity				aqui ficarão os códigos das activities (telas).

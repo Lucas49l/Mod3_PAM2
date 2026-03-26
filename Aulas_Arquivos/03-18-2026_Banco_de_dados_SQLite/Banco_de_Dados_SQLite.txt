@@ -1,0 +1,34 @@
+A boa pratica para criar aplicativos com acesso a banco de dados, é criar uma estrutura MVC.
+Essa técnica consiste em criar vários pacotes, e dentro desses pacotes colocar as classes, dividindo assim a responsabilidade.
+Com isso ganhamos em estrutura, manutenibilidade e clareza de código.
+Por padrão os pacotes são escritos sempre com todas as letras minúsculas.
+Já as classes começam com letra Maiuscula.
+Para criar um pacote, clicamos com o botão direito sobre o pacote principal - new - package - e colocamos o nome dele.
+Nosso projeto terá cadastro de cliente e produto. Entao teremos dentro de cada pacote:
+
+pacote		classe
+============== 	============================================
+controller			ClienteController / ProdutoController /iCrud
+datamodel		ClienteDataModel  / ProdutoDataModel
+model			Cliente / Produto
+api				AppUtil 
+datasource		AppDataBase
+view				MainActivity e todas as outras telas
+
+Vamos começar implementando a interface. Uma interface tem métodos abstratos ( sem corpo, portanto sem chaves{} ). Vamos colocar métodos para inserir, alterar, apagar e listar dados dentro dela.
+Uma interface tem que ser genérica, então essa interface vai ficar preparada para receber um objeto, que pode ser ou cliente ou produto, e na hora ela vai saber o que fazer com o objeto. 
+Ou seja, ao inserir um objeto, a controladora vai pegar o objeto certo, ou o cliente ou o produto.
+Esse objeto sera passado com o comando <T> (objeto Tipo)
+A primeira coisa que precisamos para trabalhar com banco de dados é extender a classe AppDataBase da classe 
+SQLiteOpenHelper, que é uma classe que auxilia na criação do banco e na manipulação das tabelas.
+Ao extender parece que deu um erro, mas na verdade o que falta é implementar os métodos, criar um método construtor compatível com a superclasse, e criar uma constante para o nome do banco e uma variável para a versão.
+A superclasse tem três construtores, e normalmente posso pegar qualquer um, visto que temos que altera-lo.
+A alteração que vamos fazer é deixar dentro dos parênteses apenas o contexto: 
+Na linha anterior do construtor, criamos a constante com o nome do banco e a versão, ficando assim:
+
+public static final DB_NAME = "banco.sqlite";
+public static int version   = 1;
+
+public AppDataBase( Context context ){
+   super( context, DB_NAME, null, version);
+} 
