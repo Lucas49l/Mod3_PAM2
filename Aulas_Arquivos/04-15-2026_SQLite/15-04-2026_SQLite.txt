@@ -1,0 +1,20 @@
+15/04 - SQLite
+==============
+Uma boa prática de programação é usar o padrão MVC. 
+Com esse padrão, separamos as responsabilidades em camadas, o que facilita na manutenção do projeto.
+Criamos então algumas camadas como 
+	
+pacote		classe					conteúdo
+======		===============		======================================
+api			AppUtil 					métodos e variáveis comuns ao sistema.
+
+controller		ClienteController			e todos os outros controllers (produto, usuário etc). Aqui
+									ficarao todos os metodos que vao controlar o acesso ao banco atraves da classe AppDataBase. A classe controller fica como um meio de campo 		  . 									entre a view e a datasource.
+
+datamodel	ClienteDataModel			nessa classe colocamos os comandos para criar as tabelas.
+
+datasource	AppDataBase				classe que efetivamente vai acessar as tabelas.
+
+model		Cliente/Usuario			e todas as classes do projeto. Aqui ficam as classes de todos os objetos do projeto com seus atributos e metodos.
+
+view			MainActivity 				e todas as telas do projeto. 
