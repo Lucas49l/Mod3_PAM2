@@ -1,0 +1,12 @@
+29/04
+=====
+O projeto Banco de dados SQLite, projetado em camadas no modelo MVC cria modelos das classes Cliente e Produto no estilo POJO.
+POJO significa "O velho e bom objeto java", que significa que essas classes POJO tem apenas atributos e os getters e setters.
+Criamos os pacotes controller para as classes ClienteController e ProdutoController, e também colocamos dentro desse pacote nossa interface iCRUD, uma interface genérica cujo objetivo é implementar nas classes os métodos abstratos dela.
+Essa interface é generica porque nao importa qual objeto ela receber ela vai conseguir executar os metodos incluir, alterar, deletar e listar.
+As classes ClienteController e ProdutoController herdam da classe AppDataBase que é responsavel por manipular os registros nas tabelas. E tambem implementam a interface iCRUD, mandando cada uma um objeto cliente ou produto.
+Para inserir esse objeto cliente ou produto temos que criar um objeto com os dados desses objetos. (Essa parte ainda falta fazer no app). A classe controller vai pegar os dados da view que eh a camada mais altae enviar para a camada mais alta e enviar para a camada mais baixa que eh a AppDataBase.
+Por fim temos a camada model que tem o modelo da tabela no banco de dados para Cliente e Produto.
+Para rodar e fazer tudo isso acontecer, na MainActivity a gente tem que instanciar um ProdutoController e um ClienteController. Esses dois objetos herdam de AppDataBase, onde executamos no metodo onCreate uma consulta para criar as tabelas ( TABELA.criarTabela( ) ).
+O metodo onCreate roda apenas uma vez. Por isso ele cria o banco e as tabelas uma unica vez. Senao toda vez os dados seriam perdidos.
+O fluxo do app é: MainActivity instancia o ProdutoController e o ClienteController que por sua vez acessam a classe AppDataBase e no metodo onCreate cria as tabelas que estao no metodo criarTabela da camada datamodel.
